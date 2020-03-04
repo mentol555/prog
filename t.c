@@ -79,13 +79,12 @@ main (void)
     // maradek hely nullazasa a titkos bufferben
     for (int i = 0; i < MAX_TITKOS - (p - titkos); ++i)
         titkos[p - titkos + i] = '\0';
-	//char str[4]= {'i', 'z', 'h', 'g'};
-	char str[4] = "ide ird be a 4 betüt"; //ide kell írni a hintet.
+	char str[4]= {'k', 'a', 't', 'a'};//ide irod a karaktereket amibol a kulcsod all
     // osszes kulcs eloallitasa
-    for (int ii = 0; ii <= 3; ++ii) //csak 4 egybeágyazott ciklus kell
-	for (int li = 0; li <= 3; ++li)
-	    for (int ki = 0; ki <= 3; ++ki)
-		for (int ji = 0; ji <= 3; ++ji)
+    for (int ii = 0; ii <= 4; ++ii) //csak 4 egybeágyazott ciklus kell
+	for (int li = 0; li <= 4; ++li)
+	    for (int ki = 0; ki <= 4; ++ki)
+		for (int ji = 0; ji <= 4; ++ji)
                                 {
                                     kulcs[0] = str[ii]; //csak 4 karakter hosszú a kulcs
                                     kulcs[1] = str[li];
@@ -95,7 +94,7 @@ main (void)
                                     if (exor_tores (kulcs, KULCS_MERET, titkos, p - titkos))
                                         printf
                                         ("Kulcs: [%c%c%c%c]\nTiszta szoveg: [%s]\n", //csak 4 karaktert irjon ki a kulcsnál
-                                         kulcs[ii], kulcs[li], kulcs[ki], kulcs[ji], titkos);
+                                         kulcs[ii], kulcs[li], kulcs[ki], titkos);
 
                                     // ujra EXOR-ozunk, igy nem kell egy masodik buffer
                                     exor (kulcs, KULCS_MERET, titkos, p - titkos);
@@ -103,3 +102,4 @@ main (void)
 
     return 0;
 }
+

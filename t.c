@@ -94,7 +94,7 @@ main (void)
                                     if (exor_tores (kulcs, KULCS_MERET, titkos, p - titkos))
                                         printf
                                         ("Kulcs: [%c%c%c%c]\nTiszta szoveg: [%s]\n", //csak 4 karaktert irjon ki a kulcsnál
-                                         kulcs[ii], kulcs[li], kulcs[ki], titkos);
+                                         kulcs[ii], kulcs[li], kulcs[ki], kulcs[ji], titkos);
 
                                     // ujra EXOR-ozunk, igy nem kell egy masodik buffer
                                     exor (kulcs, KULCS_MERET, titkos, p - titkos);

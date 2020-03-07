@@ -1,0 +1,72 @@
+<title>Pici könyv</title>
+<para>Olvasónaplóm a Juhász István Magas szintű programozási nyelvek 1 könyvéből</para>
+<para>1.2 Alapfogalmak 11-15 oldal</para>
+
+<para>A programozási nyelvek három szintje: gépi, assembly szintű, magas szintű nyelv
+A magas szintű nyelven irt programot forrásszövegnek nevezzük.
+Magas szintű programozási nyelv: szintaktika és szemantikai szabályok együttese
+A szintaktikai szabályok: forrásszöveg összeállitására vonatkozó formai, nyelvtani szabályok összessége
+A szemantikai szabályok: tartalmi, értelmezési, jelentésbeli szabályok
+A forrásszövegből gépi nyelvű programot forditóprogramos és interpreteres technikával lehet létrehozni
+A forditóprogram gépi kódú tárgyprogramot állit elő, az egységként kezelt forrásprogramból. 
+A forditóprogram lépései: lexikális , szintaktikai, szemantikai elemzés és kódgenerálás
+Az interpreteres technika esetén is ugyanaz az első három lépés, de nem készit tárgyprogramot, hanem utasitásonként értelmezi a forrásprogramot és végrehajtja azt
+Vannak programnyelvek amelyek mindkét technikát alkalmazzák.
+Minden programnyelvnek van saját szabványa melyben pontosan definiálva vannak a szintaktikai és szemantikai szabályok. A szintaktikai szabályok leirásához általában formalizmust használunk a szemantikaiakhoz pedig természetes emberi nyelvet.
+A hordozhatóság problémája az implementációk inkompatibilitását jelenti, melyek adott platformon realizált forditóprogramok vagy interpreterek. Ez a probléma 50 éve vár a 100 százalékos megoldásra.
+A programnyelvek három féle képpen osztályozhatóak: imperativ , deklarativ, vagy egyéb nyelvek.
+Az imperativ nyelvek: Algoritmikus nyelvek, az algoritmus működteti a processzort, Utasitások sorozata, legfőbb eszköz a változó(Alcsoportjai: Eljárásorientált, Objektumorientált nyelvek)
+A deklarativ nyelvek: Nem algoritmikus nyelvek, kevés lehetőség van a memóriaműveletekre, a programozó csak a problémát adja meg.(Alcsoportjai: Logikai nyelvek, Funkcionális nyelvek)
+Más nyelvek: Nincs egységes jellemzőjük, tagadják valamelyik imperativ jellemzőt.</para>
+
+<para>2. Alapelemek 17-27 oldal</para>
+<para>Ebben a fejezetben egy programozási nyelv alapeszközeit, alapfogalmait ismerjük meg.</para>
+
+<para>A forrásszöveg legkisebb alkotórészei a karakterek. Alapvető a karakterkészlet, ezekből állithatók össze a bonyolult nyelvi elemek.
+Eljárásorientált nyelvek esetén ezek a: lexikális egységek, szintaktikai egységek, utasitások, programegységek, program.
+A karakterek kategorizálása: betűk, számjegyek, egyéb karakterek. Minden programnyelvben betű az angol ABC 26 nagybetűje, és ezek közül a kis és nagyokat is egyes nyelvek elfogadnak(C), mások nem(Pascal).
+Még előforduló karakterek: _, $, #, @, +, - ,*, /, [,],.,:,{,},',",;,?,!,~.
+A lexikális egységek a program szövegének azon elemei, melyeket a forditó a lexikális elemzés során felismer és tokenizál.
+Fajtái:
+Többkarakteres szimbólumok: ++,--,&&,/*,*/.
+Szimbolikus nevek: Azonositó(karaktersorozat ami betűvel kezdődik és betűvel vagy számjeggyel folytatódik)
+pl: x, almafa, hallgato_azonosito, SzemelyNev és nem azonositók: x+y,123abc.
+Kulcsszavak(alapszó): pl: if,for,case,break.
+Cimke: speciális karaktersorozat, amely lehet előjel nélküli egész szám vagy azonositó. Általános, hogy utasitás előtt áll és :-al van elválasztva. Cimke felépitése példa: azonositó(C),4 számjegyből álló egész szám(pascal)
+Megjegyzés: A program szövegét olvasó embernek szól, nem a forditónak. pl // vagy /*...*/
+Literálok(Konstansok): Fix, explicit értékek a program szövegében. pl: egész literálok, valós literálok, karakter literálok, szring literálok.</para>
+<para>Forrásszöveg összeállitásának általános szabályai:</para>
+<para>A kötött formátumú nyelvek esetén egy sorban egy utasitás volt elhelyezhető, a szabad formátumú nyelvek esetén akárhány utasitás egy sorban, két pontosvessző között áll egy utasitás. A lexikális egységeket alapszóval vagy szóközzel kell elválasztani(eljárás orientált nyelvben).</para>
+
+<para>2. Adattipusok, nevesitett konstans, változó, alapelemek az egyes nyelvekben </para>
+<para>
+Az adattipus egy absztrakt programozási eszköz, amely mindig más, konkrét programozási eszköz egy komponens. Adattipusnak neve van, egy azonositó.
+Egy adattipust meghatározza a tartománya(amiket felvehet értékként), a műveletei(a tartomány elemein) és a reprezentációja(egyes tipusok tartományába tartozó értékek tárban való megjelenése).
+Egyszerű tipusok:egész(fixpontos), valós(lebegőpontos),karakteres(karakteres ábrázolás), továbbá logikai(i v h),felsorolás, sorszámozott.
+Összetett tipusok: tömb(dimenzió száma,indexkészlet tipusa és tartománya, elemeinek tipusa). A C nem ismeri a többdimenziós tömböt (egydimenziós tömb egydimenziós tömb-elemekkel képzeli el).
+A mutató tipus egyszerű tipus, tartományának elemei tárcimek. Egy adott tárbeli területre mutat. Speciális tartománybeli eleme a NULL.
+A nevesitett konstans három komponensből áll: név, tipus érték.
+Mindig deklarálni kell, akkor használjuk amikor egy érték sokszor előfordul és ezt elnevezzük egy nevesitett konstansra, amire egyszerűen hivatkozhatunk. A C ben pl #define név literál
+A változó négy komponense: név, attiribútumok, cim, érték.
+Ezek minden változónál szerepelnek. A név egy azonositó, az attribútumok a futásközbeni viselkedést határozzák meg(pl a tipusa).
+Változó attributumok esetén deklarációt alkalmazunk: explicit deklaráció(programozó végzi, teljes nevéhez kell az attribútumokat megadni), implicit deklaráció(betűhöz rendel attribútumokat, azonos kezdőbetűjű változók u.olyan attribútumúak lesznek), automatikus deklaráció(a forditóprogram rendel attribútumokat a változókhoz).
+A változó cime: ahol a tárnak azt a részét hat. meg ahol a változó értéke elhelyezkedik. A cim rendelhető: statikusan, dinamikusan, programozó által, de mindháromra kell olyan eszköz ami megszűnteti a cimkomponenst.
+A változó értéke:  értékadó utasitás által(változó = kifejezés), input(egy perifériáról), kezdőértékadás(explicit,implicit).
+Az alapelemek a C nyelvben: aritmetikai tipusok(egyszerű), integrális tipusok,valós, származtatott(összetett:tömb(egydimenziós),függvény,mutató,struktúra), void tipus.
+</para>
+
+<para>3.Kifejezések</para>
+<para>
+Két komponensük van:érték és tipus. Formális összetevői:operandusok,operátorok,kerek zárójelek. Vannak egyoperandusú, kétoperandusú, háromoperandusú operátorok.
+Három alakja van a kifejezéseknek:prefix(operátor operandusok előtt),infix(között),postfix(után).
+Infix alakban balról-jobbra szabály van. Infix alak esetén kell használni zárójeleket(ezek lesznek az elsődlegesek).
+Vannak logikai operátorok is(és,vagy...). A kifejezés tipusa lehet tipusegyenértékű(kétoperandusú operátornak csak azonos tipusu operandusai lehetnek) vagy tipuskényszeritő(különböző tipusu operandusok is lehetnek).
+A konstans kifejezés: kiértékelését a forditó végzi. Operandusai lehetnek literálok és nevesitett konstansok.
+A C egy alapvetően kifejezésorientált nyelv. A mutató tipussal összeadás és kivonás végezhető. A tömb tipusú eszköz neve mutató tipusú, tehát a[i] = *(a+i).
+Példák C beli operátorokra: ()(függvényoperátor,precedencia felülirás), [](tömboperátor), . (minősitő operátor,struktúra és union esetén), ->(mutatóval történő minősités operátora), *(szorzás,tárterületen elhelyezett érték),&(operandus cime), ?:(háromoperandusú) stb.
+</para>
+
+
+
+
+

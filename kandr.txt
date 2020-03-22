@@ -1,0 +1,34 @@
+<para>Alapismeretek</para>
+<para>A könyv első fejezete a C nyelv alapismereteinek elsajátitásairól szól, bonyolódás nélkül. 
+Bemelegités képpen a képernyőre való kiiratás egyszerű megvalósitását ismerjük meg a printf használatával.
+Megismerjük a Fahrenheit-hőmérséklet Celsius-értékké alakitásának egyszerű megoldását is, valamint a változó tipusokat(int,float..).
+A legismertebb ismétlő ciklusokkal is találkozhatunk, azaz a while-al és a for-al.
+Bevezetést kapunk a szimbolikus állandók fogalmába is, néhány alapvető függvényt ismerünk meg(getchar(),putchar()),
+Néhány nap mint nap használt eljárást is találhatunk: karakterek számlálása, szavak számlálása, sorok számlálása, valamint tömbök, függvények, argumentumok és érték szerinti hivások fogalmát is letiztázhatjuk a fejezet elolvasásával.
+</para>
+<para>Tipusok, operátorok, kifejezések</para>
+<para>
+Ebben a fejezetben ismerkedünk meg a változónevek szabályaival, hogyan és mint kell használni azokat, valamint tovább boncoljuk az adattipusokat és a hozzá kapcsolódó méreteket.
+A matematikai állandók is szóbajönnek, mint pl. az e vagy pi, de állandó létrehozást is kifejtik a fejezetben.
+A deklarációk fogalma sem maradhat ki, hiszen ezek nélkül használhatatlanak lennének a tipusok, operátorok, kifejezések, változók.. egyszóval minden.
+Megismerkedhetünk az aritmetikai operátorokkal, amikkel minden ember megismerkedik egyszer, de most C környezetben.
+A relációs és logikai operátorok már kicsit elvontabb témakör, ezzel nem épp mindenki találkozik de ezek is roppant hasznosak a programozásban.
+A tipuskonverziók témaköre rendkivül hasznos számunkra, ebbe is betekintést nyerhetünk, és megtudhatjuk, hogy csak az értelmes konverziók történnek meg.
+Az inkrementáló, dekrementáló operátorok is szóbajönnek, amik szintén alap szintű felfogást igényelnek a megértéshez, valamint a bitenkénti logikai operátorok is szóbajönnek, amik kicsit már bonyolultabbak, de megérthetőek szintén(&,|,^ stb.).
+Értékadó operárotok, feltételes kifejezések, precedencia(kiértékelés sorrendje) szépen ki van vesézve, érthetően és pontosan.
+</para>
+<para>Vezérlési szerkezetek</para>
+<para>
+Itt ismerjük meg az utasitásokat és blokkokat, valamint az if-else utasitást, else-if utasitást, switch utasitást, while, for utasitást, do-while utasitást, break utasitást, continue utasitást, goto utasitást, cimkéket. 
+Ezek a fogalmak mind szépen taglalva vannak, és kapcsolódnak szorosan az előző fejezetekhez is, valamint érthető magyarázatok és példákkal vannak illusztrálva azok. 
+Ezek mind fontos "alapfoglamak" , ugymond fegyverek a C nyelvben, amiket akkor használunk, amikor akarunk, attól függ, hogy mikor melyiket látjuk a legelőnyösebbnek.
+</para>
+<para>Függvények és programstruktúra</para>
+<para>
+Ebben a fejezetben a függvényeket és a program felépitési szabályait vesézzük ki. Minden apró fontos csavar jó helyre illesztése eredményezheti csupán a program működését.
+A függvények előnyeiről, hasznosságáról találhatunk példákat, valamint konkrét programrészleteket, helyes és működő programstruktúrákról.
+Megismerhetjük a függvények minden fajtáját, alágát, ilyen akár a nem egész tipus értékkel visszatérő függvény.
+Külső változók, regiszter változók, érvényességi tartomány szabályai sem marad ki a boncolásból, ezeket is nagyon érthetően elemzi a könyv, és a kiváló példákkal elülteti az ember agyában.
+Statikus változók és a blokkstruktúra is megjelenik, valamint további nyelvekkel kerül összehasonlitásba a C nyelv.
+Az inicializálás, rekurzió, C előfeldolgozó, Állomány beiktatás és makrohelyettesités témakörei is taglalva vannak, szépen sorrendben.
+</para>

@@ -1,0 +1,58 @@
+<para>Python nyelv bemutatása</para>
+<para>
+A python nyelv átlagos számú elérhető funkciókkal a többi nyelvhez képest,
+nagyon gyors fejlesztési gyorsasággal rendelkező és sok támogatott eszköz számmal rendelkező magas szintű, 
+általános célú programozási nyelv.
+</para>
+<para>A python nyelv bemutatása</para>
+Guido van Rossum 1990-ben alkotta meg, a célja a rengeteg pozitiv tulajdonsággal rendelkező, magas szintű, 
+dinamikus, objektumorientált és platform független nyelv megalkotása volt.
+</para>
+<para>
+Fontos jellemzője a Python nyelvnek, hogy forditóra nincs szükség, ezért is gyorsit a tipikus programirás/forditás/tesztelés/újraforditás cikluson.
+A Python interpreter számos platformon elérhető, többek közt a : Windows, MacOS X, Unix, iPhone, s60...
+</para>
+<para>
+Az alkalmazás fejlesztést felgyorsitó előre python nyelven megirt, könnyen élérhető kódkönyvtárak roppant hasznosak.
+Köztes nyelv a Python nyelv, nincs szükség forditásra és linkelésre. 
+</para>
+<para>
+A Python nyelv szintaxisában nem találhatók meg a jól ismert begin, end vagy ; használatra, mivel behúzásalapú a szintaxisa.
+A sor végéig tart az utasitás.
+Az értelmező minden sort tokenekre bont amelyek közt tetszőleges whitespace karakter lehet.
+Lefoglalt kulcsszavak közül néhány: and, del, for, if, is, elif, while, print, import, class, break, return..
+</para>
+<para>
+Megismerkedünk a Tipusok és változók fogalmával a Python nyelvben.
+Nincs szükség a változók tipusainak explicit megadására, mivel a rendszer futási időben kitalálja azt.
+Néhány adattipus a Python nyelvben: számok, stringek, ennesek, listák, szótárak..
+A felsoroltak közül az ennesek lehet ismeretlen számunkra, ezek az objektumok gyűjteményei vesszővel elválasztva.
+Ezeket általában zárójelek közé irjuk, vesszővel elválasztva, pl: ('a','b','c'), (), (1,"szia",3)..
+A lista elemeit szögletes zárójelek közé irjuk pl: ['a','b','c'], list('abc')..
+A szótár kulcsokkal azonositott elemek rendezetlen halmaza. Pl: {'a':1, 'b':5, 'e':1982}..
+A pythonban a NULL érték neve None.
+</para>
+<para>
+A nyelvben a változóknak nincsenek tipusai, akár több tipusú objektumra is hivatkozhatnak.
+Pl: a=b=c=1; x,y=y,x (felcseréli a két változót).
+A del kulcsszóval törlünk változó hozzárendelést.
+Ittis léteznek globális illetve lokális változók, alapból lokális, de pl: global valtozo1 globális lesz.
+Néhány listán végezhető műveletre példa: count(e) visszaadja az e előfordulásainak számát, 
+insert(i,e) beszúrja az e elemet az i-edik helyre, sort([f]) sorbarendezi(helyben) a lista elemeit az f függvény felhasználásával.
+copy() visszatér a szótár egy másolatával, keys(), iterkeys() a szótár kulcsait tartalmazó listával, illetve iterátorral tér vissza.
+clear() kitörli az összes elemet a szótárból.
+</para>
+<para>
+A könyv további részében megismerkedünk a nyelv eszközeivel.
+Ide tartozik a print, az elágazás(if elif else), ciklusok(for x in lista: print x), while(i<3): print i stb.
+Találhatók cimkék, ugrások is a nyelvben, valamint függvények, melyeket def kulcsszóval definiálhatunk, pl:
+def hello(): print "Hello" return
+</para>
+<para>
+A python nyelvben is találhozhatunk az osztályok és az objektumok témakörével, melyek klasszikus objektumorientált fejlesztési eljárások.
+pl: class Koszonto: def MonddSzia(self, ember): print 'Kedves', ember, ', udvozollek.'
+</para>
+<para>
+A python nyelvben még megismerkedhetünk a modulokkal(mobilkészülékeken való fejlesztés megkönnyitésére), Kivételkezeléssel, mely hasonló alapon működik mint a többi objektum orientált nyelv esetén,
+És még a végén találhatunk részletes példákat forráskódokkal megspékelve az eddig tárgyalt témakörök megalapozásának érdekében.
+</para>

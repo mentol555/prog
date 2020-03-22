@@ -1,0 +1,22 @@
+<para></para>
+<para>
+Az első fejezetben megismerhetjük a C++ nyelv rövid történetét, objektum-orientált tulajdonságait és a generikus programozás fogalmait.
+A C++ C nyelvre való épülése fontos dolog, amit mindenkinek tudni kell, és ezen nyelvek szoros, testvéri kapcsolatáról olvashatunk.
+</para>
+<para>
+A második fejezetben néhány nem objektum orientált újdonságait ismerhetjük meg a C++ nyelvnek. 
+Összehasonlitásra kerül a C nyelvvel szintén, a tetszőleges számú paraméterrel való hivás példája van kiemelve(C ben void f() mig C++ban void f(void)).
+Megismerjük a main függvény használati módját is, valamint a return 0 nem kötelező használatát ebben a függvényben.
+A bool tipus bevezetése is meg van emlitve, mely a C nyelvben még nem szerepelt, ami logikai értéket hordoz.
+Több bájtos stringek fogalma is ismertetésre kerül, és ezek használásához szükséges includeolandó könyvtárak is fel vannak sorolva.
+A változó deklaráció mint utasitás is szóbajön, azaz minden olyan helyen állhat változódeklaráció, ahol utasitás is állhat.
+Megismerjük a függvények túlterheltségét is: C ben a függvény neve azonositja egyértelműen a függvényt, mig C++ ban a függvény neve és az argumentumlistájuk együttesen azonositja.
+Ezért történhet meg az, hogy C++ ban azonos néven létezhet két függvény ha az argumentumlistájuk különböző és egyedi.
+
+</para>
+<para>
+A C++ nyelv kifejlesztése során át kellett térni C nyelvi szabályokból új szabályokra, igy születtek meg a C++ megoldások.
+Ilyen pl a C ben ismert struct mely C++ban class lett, a malloc/free ből new/delete (new[]/delete[]) lett, 
+az if (fv()==success) ből try{fv();} catch(){} lett valamint #define MAX 300 ból const int max=300; vagy
+a char* ból string osztály, a char**ból vector<string>, printf ből cout<< és még jónéhány módositás született a C++ nyelv bevezetésével.
+</para>

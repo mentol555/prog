@@ -1,0 +1,372 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Welch!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Első osztályom</title>
+        <para>
+            Valósítsd meg C++-ban és Java-ban az módosított polártranszformációs algoritmust! A matek háttér 
+            teljesen irreleváns, csak annyiban érdekes, hogy az algoritmus egy számítása során két normálist
+            számol ki, az egyiket elspájzolod és egy további logikai taggal az osztályban jelzed, hogy van vagy
+            nincs eltéve kiszámolt szám.
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat... térj ki arra is, hogy a JDK forrásaiban a Sun programozói
+            pont úgy csinálták meg ahogyan te is, azaz az OO nemhogy nem nehéz, hanem éppen természetes neked!
+        </para>   
+        <para>
+            Az osztály fogalma az Objektum Orientált Programozás (OOP) egy kulcsfontosságú tagja. Akkor nevezünk egy nyelvet objektum orientáltnak, ha egymással kommunikáló objektumokbók épitik fel a programot, és ezek magukbafoglalják az adatokat és a műveleteket. Az objektum orientáltság egyszerűsit a program bonyolultságán, hatékonyságát növeli, és az átláthatóságát egyaránt, valamint több lehetőség van egy ilyen nyelvben. A C++ és a Java egyaránt OOP nyelvek. Bevezetőnek első osztályú ( :)) ) egy polártranszformációs generátor az Objektum Orientáltsághoz. Fontos lépés a feladatban, hogy egy számitási lépés két normális eloszlású számot állit elő, és minden második meghiváskor fel fogja használni az előzőleg tárolt-ban elhelyezett számot, tehát nem fog mindig számolni. 
+        </para>        
+        <para>
+            Első példa a feladat megoldására a C++ nyelven történik, Bátfai Norbert forrását felhasználva. Három részből áll a programunk, itt látható a három forráscsipet:
+        </para>
+
+        <para>
+            <programlisting language="c++">
+            <![CDATA[
+            // POLARGEN.H
+            #ifndef POLARGEN__H
+            #define POLARGEN__H
+
+            #include <cstdlib>
+            #include <cmath>
+            #include <ctime>
+
+            class PolarGen
+            {
+            public:
+              PolarGen ()
+              {
+                nincsTarolt = true;
+                std::srand (std::time (NULL));
+              }
+               ~PolarGen ()
+              {
+              }
+              double kovetkezo ();
+
+            private:
+              bool nincsTarolt;
+              double tarolt;
+
+            };
+
+            #endif
+
+            ]]>
+            </programlisting>  
+        </para>
+
+        <para>
+            A polargen.h csipetből kiolvasható fontosabb információk: A nincsTarolt változó használata, ami egy bool tipusu változó. A srand() függvény egy megjósolhatatlan folyamatosan változó véletlenszerű számra van szükségünk, a time() pedig azért a paramétere, mert a számitógépünk idő bitjét fogja használni. Ezeket egy PolarGen nevű osztályban valósitjuk meg, ami megkönnyiti számunkra a különböző értéktartományokhoz véletlenszerű számokat előállitani, és használhatóbb lesz a generátorunk. Private részben találjuk meg a bool nincsTarolt és a double tarolt változók deklarálását, tehát ezeket máshol a programban nem fogjuk tudni elérni és változtatni. 
+        </para>
+
+        <para>
+            <programlisting language="c++">
+            <![CDATA[
+            //POLARGEN.CPP
+            #include "polargen.h"
+
+            double
+            PolarGen::kovetkezo ()
+            {
+              if (nincsTarolt)
+                {
+                  double u1, u2, v1, v2, w;
+                  do
+                {
+                  u1 = std::rand () / (RAND_MAX + 1.0);
+                  u2 = std::rand () / (RAND_MAX + 1.0);
+                  v1 = 2 * u1 - 1;
+                  v2 = 2 * u2 - 1;
+                  w = v1 * v1 + v2 * v2;
+                }
+                  while (w > 1);
+
+                  double r = std::sqrt ((-2 * std::log (w)) / w);
+
+                  tarolt = r * v2;
+                  nincsTarolt = !nincsTarolt;
+
+                  return r * v1;
+                }
+              else
+                {
+                  nincsTarolt = !nincsTarolt;
+                  return tarolt;
+                }
+            }
+
+            ]]>
+            </programlisting>
+        </para>
+
+        <para>
+            Ebben a forrásfileban valósitjuk meg a polártranszformációt, azon belül a matematikai számitásokat. Hozzáadjuk a polargen.cpp-hez include-on keresztül a fentebb tárgyalt header filet is. Akkor fogunk új számot késziteni, hogyha nincs tárolt számunk a tarolt változóban. A matekes háttér most nem lényeges.
+        </para>
+
+        <para>
+            <programlisting language="c++">
+            <![CDATA[
+            #include <iostream>
+            #include "polargen.h"
+            #include "polargen.cpp"
+            int
+            main (int argc, char **argv)
+            {
+              PolarGen pg;
+
+              for (int i = 0; i < 10; ++i)
+                std::cout << pg.kovetkezo () << std::endl;
+
+              return 0;
+            }
+
+            ]]>
+            </programlisting>
+        </para>
+
+        <para>
+            A
+        </para>
+
+        <para>
+        </para>
+    </section>        
+
+    <section>
+        <title>LZW</title>
+        <para>
+            Valósítsd meg C-ben az LZW algoritmus fa-építését!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Videó link-saját: <link xlink:href="https://youtu.be/odX1n0n7ArM">https://youtu.be/odX1n0n7ArM</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="z.c">
+                <filename>bhax/thematic_tutorials/bhax_textbook_IgyNeveldaProgramozod/z.c</filename>
+            </link> 
+        </para>
+        <para>
+            A megoldás forrása nem saját, hanem egy már előre megirt forrást fogok feldolgozni, ami Bátfai Norbert tulajdona.
+        </para>
+
+        <para>
+            A Bináris fában az LZW fa épités két fő, fontos esetből áll: Az 1 és a 0 értékek beépitése megfelelő képpen. Mindkét esetben a bináris fa épitésének lépései a következők:
+        </para>
+
+        <para>
+            Az aktuális érték amit be szeretnénk tenni a fába két féle lehet: 0 vagy 1. Ha egyes érték következik éppen, amit be szeretnénk tenni a fába, akkor meg kell néznünk, hogy van e már 1-es gyermeke az aktuális csomópontunknak(legelső betételnél a gyökérnek). Ha igen, akkor egyszerűen berakjuk az 1-es értéket az aktuális csomópontunk gyermekének, és ide fog állni a fa pointer. Ha viszont nincs, akkor kell létrehoznunk egy új csomópontot, amit már a létező 1-es csomópontnak a gyermekének állitunk be. Fontos lépés, hogy mikor új csomópontot hozunk létre, akkor visszaállitjuk a fa pointert a rendes gyökérre.
+        </para>
+        <para>
+            Hasonlóan járunk el 0-ás érték berakásánál is, csupán annyi, hogy az aktuális csomópontunknak a nullás gyermekét nézzük meg, hogy van-e, ha nincs akkor egyszerűen berakjuk az akt. csomópontunk 0-ás gyermekének, ha viszont nincs akkor szintén létre kell hozni egy új, nullás gyermeket.
+        </para>
+        <programlisting language="c++">
+            <![CDATA[
+            BINFA_PTR gyoker = uj_elem ();
+          gyoker->ertek = '/';
+          gyoker->bal_nulla = gyoker->jobb_egy = NULL;
+          BINFA_PTR fa = gyoker;
+          long max=0;
+            while (read (0, (void *) &b, sizeof(unsigned char)))
+            {
+                for(i=0;i<8; ++i)
+                {
+                    egy_e= b& 0x80;
+                    if ((egy_e >>7)==0)
+                        c='1';
+                    else
+                        c='0';
+                }
+                if (c == '0')
+                {
+                    if (fa->bal_nulla == NULL)
+                    {
+                    fa->bal_nulla = uj_elem ();
+                    fa->bal_nulla->ertek = 0;
+                    fa->bal_nulla->bal_nulla = fa->bal_nulla->jobb_egy = NULL;
+                    fa = gyoker;
+                    }
+                    else
+                    {
+                    fa = fa->bal_nulla;
+                    }
+                }
+              else
+                {
+                    if (fa->jobb_egy == NULL)
+                    {
+                     fa->jobb_egy = uj_elem ();
+                     fa->jobb_egy->ertek = 1;
+                     fa->jobb_egy->bal_nulla = fa->jobb_egy->jobb_egy = NULL;
+                     fa = gyoker;
+                     }
+                else
+                    {
+                  fa = fa->jobb_egy;
+                    }
+                }
+            }
+            ]]>
+        </programlisting>  
+
+        <para>
+            Röviden a forráscsipetről: olvassuk befele az értékeket, amiket c változóban mentünk. Ha 0-ás akkor megnézzük, hogy van e már 0-ás gyermeke az akt. csomópontnak: ha nincs akkor csinálunk neki, a fa pointer visszaáll, ha pedig még nincs neki akkor oda tesszük egyszerűen, és rááll a fa pointer. 1-es érték esetén hasonlóan járunk el. 
+        </para>
+        <para>
+            Ezen programrészlet és algoritmus alapján fog beépülni minden egyes csomópont a fába, és igy fog végül elkészülni az LZWBinfa is. Ebben az esetben inorder bejárással dolgozzuk fel a fát, ami annyit takar, hogy a fa baloldalával foglalkozunk elsőre, azután a gyökérrel, azután a jobboldallal. A többi bejárási módszerre példát a következő feladatban találhatunk, ott már szóba fog jönni a preorder és a postorder bejárási mód is.
+        </para>
+    </section>        
+        
+    <section>
+        <title>Fabejárás</title>
+        <para>
+            Járd be az előző (inorder bejárású) fát pre- és posztorder is!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Videó link-saját: <link xlink:href="https://youtu.be/odX1n0n7ArM">https://youtu.be/odX1n0n7ArM</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="z3a7.cpp">
+                <filename>bhax/thematic_tutorials/bhax_textbook_IgyNeveldaProgramozod/z3a7.cpp</filename>
+            </link> 
+        </para>
+        <para>
+            Az előző feladatban tárgyalt fát több féle képpen is bejárhatjuk. Három módja van egy bináris fa bejárásának: in order, pre order, post order bejárási módok.
+        </para>
+        <para>
+            Az in order bejárási mód röviden és tömören annyit takar, hogy a fát úgy fogjuk bejárni, hogy egy adott csomópontnak mindig a bal gyerekét dolgozzuk fel először, azután az aktuális csomópontot, azután pedig a jobb gyerekét. Az eredeti forrásban ez pont igy van, az alábbi programrészlet alapján in order bejárási módot fog alkalmazni a kiir függvényünk.
+        </para>
+                <programlisting language="c++">
+            <![CDATA[
+            void kiir (Csomopont * elem, std::ostream & os)
+            {
+                if (elem != NULL)
+                {
+                    ++melyseg;
+                    kiir (elem->egyesGyermek (), os);//egyes gyermek feldolgozása
+                    
+                    
+                    for (int i = 0; i < melyseg; ++i)
+                        os << "---";
+                    os << elem->getBetu () << "(" << melyseg - 1 << ")" << std::endl;//csomópont feldolgozása
+
+                    kiir (elem->nullasGyermek (), os);//nullás gyermek feldolgozása
+                    --melyseg;
+                }
+            }
+            ]]>
+        </programlisting>  
+        <para>
+            Az emlitett bejárási módok közül a második az a pre order bejárási mód. Ez arról szól, hogy elsőnek az aktuális csomópontot dolgozzuk fel, ezt követően a bal és a jobb gyerekeket. A módositott forráscsipet:
+        </para>
+        <programlisting language="c++">
+            <![CDATA[
+            void kiir (Csomopont * elem, std::ostream & os)
+            {
+                // Nem létező csomóponttal nem foglalkozunk... azaz ez a rekurzió leállítása
+                if (elem != NULL)
+                {
+                    ++melyseg;
+
+                    for (int i = 0; i < melyseg; ++i)
+                        os << "---";
+                    os << elem->getBetu () << "(" << melyseg - 1 << ")" << std::endl;
+
+
+                    kiir (elem->egyesGyermek (), os);//egyes gyermek feldolgozása
+                    
+                    kiir (elem->nullasGyermek (), os);//nullás gyermek feldolgozása
+                    --melyseg;
+                }
+            }
+            ]]>
+            </programlisting>  
+            
+        <para>
+            A harmadik bejárási mód pedig a post order bejárási mód. Ebben az esetben a bal azután a jobb gyerekeit dolgozzuk fel az aktuális csomópontunknak, majd ezt követően az aktuális csomópontot. Igy néz ki a módositott forráscsipet:
+        </para>    
+            <programlisting language="c++">
+            <![CDATA[
+            void kiir (Csomopont * elem, std::ostream & os)
+            {
+                if (elem != NULL)
+                {
+                    ++melyseg;
+
+                    kiir (elem->egyesGyermek (), os);
+
+                    kiir (elem->nullasGyermek (), os);
+
+                    for (int i = 0; i < melyseg; ++i)
+                        os << "---";
+                    os << elem->getBetu () << "(" << melyseg - 1 << ")" << std::endl;
+
+                    --melyseg;
+                }
+            }
+            ]]>
+            </programlisting>
+        <para>
+            A program a <command>g++ z3a7.cpp -o z3a7</command> paranccsal forditható, és futtatható a <command>./z3a7 kisbemenet.txt -o kiskimenet.txt</command> paranccsal, ahol a kisbemenet.txt az tetszőleges mennyiségű T,C,A,G karakterek sorozatát tartalmazhatja, úgy, hogy az első sorba teszünk egy üres sort.
+        </para>  
+    </section>        
+                        
+    <section>
+        <title>Tag a gyökér</title>
+        <para>
+            Az LZW algoritmust ültesd át egy C++ osztályba, legyen egy Tree és egy beágyazott Node
+            osztálya. A gyökér csomópont legyen kompozícióban a fával!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+    </section>        
+                
+    <section>
+        <title>Mutató a gyökér</title>
+        <para>
+            Írd át az előző forrást, hogy a gyökér csomópont ne kompozícióban, csak aggregációban legyen a 
+            fával!
+        </para>
+        <para>
+            Megoldás videó: 
+        </para>
+        <para>
+            Megoldás forrása:  
+        </para>
+    </section>                     
+
+    <section>
+        <title>Mozgató szemantika</title>
+        <para>
+            Írj az előző programhoz mozgató konstruktort és értékadást, a mozgató konstruktor legyen a mozgató
+            értékadásra alapozva!
+        </para>
+        <para>
+            Megoldás videó: 
+        </para>
+        <para>
+            Megoldás forrása:  
+        </para>
+    </section>                     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                

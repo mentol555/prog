@@ -22,6 +22,8 @@ Az inkrementáló, dekrementáló operátorok is szóbajönnek, amik szintén al
 Itt ismerjük meg az utasitásokat és blokkokat, valamint az if-else utasitást, else-if utasitást, switch utasitást, while, for utasitást, do-while utasitást, break utasitást, continue utasitást, goto utasitást, cimkéket. 
 Ezek a fogalmak mind szépen taglalva vannak, és kapcsolódnak szorosan az előző fejezetekhez is, valamint érthető magyarázatok és példákkal vannak illusztrálva azok. 
 Ezek mind fontos "alapfoglamak" , ugymond fegyverek a C nyelvben, amiket akkor használunk, amikor akarunk, attól függ, hogy mikor melyiket látjuk a legelőnyösebbnek.
+Fontos ezeket megjegyezni, mert tulajdonképpen alapkövek a C nyelvben, és más nyelvekben is előkerülnek, lehet hogy más formában, de előkerülnek. Egyszerűek, meg lehet őket jegyezni,
+sok gyakorlással és alkalmazással meg a kisujjunkba kerülhetnek.
 </para>
 <para>Függvények és programstruktúra</para>
 <para>
@@ -32,3 +34,20 @@ Külső változók, regiszter változók, érvényességi tartomány szabályai 
 Statikus változók és a blokkstruktúra is megjelenik, valamint további nyelvekkel kerül összehasonlitásba a C nyelv.
 Az inicializálás, rekurzió, C előfeldolgozó, Állomány beiktatás és makrohelyettesités témakörei is taglalva vannak, szépen sorrendben.
 </para>
+<para>Utasitások</para>
+<para>
+Az  utasitások egymást követően sorban hajtódnak vége. Több fajtáját is megkülönböztetjük az utasitásoknak:
+</para>
+<para>Kifejezés utasitás: értékadások, függvényhivások.</para>
+<para>Összetett utasitás/blokk: ahol elvileg egy utasitás helyezhető el, ott a blokk használatával többet is használhatunk.</para>
+<para>Feltételes utasitás: Akkor használjuk, ha két lehetőségből kell választani. if-else a példa rá, ha az if igaz akkor azt végzi el, különben az else ágat.</para>
+<para>While utasitás: Végrehajtódik az utasitás mindaddig amig amig a kifejezés értéke nemnulla marad.</para>
+<para>Do-while utasitás: Mindaddig ismétlődik az utasitás amig a kifejezés értéke nullává nem válik.</para>
+<para>For utasitás: Képesek vagyunk megadni, hogy hányszor hajtódjon végre az utasitás, és hogy mi legyen a feltétel.</para>
+<para>Switch utasitás: ez a többágú feltételes utasitás: egy kifejezést több esetre bonthatunk, case:-kre valamint van egy default: eset is.</para>
+<para>Break utasitás: Befejeződik az őt körülvevő while, do-while, for vagy switch utasitás.</para>
+<para>Continue: átugorja a többi utasitást és az őt körülvevő while,do-while,for utasitás ciklusfolytató részére ugrik a vezérlés.</para>
+<para>Return utasitás: A függvény a hivójához a return utasitással tér vissza. </para>
+<para>Goto utasitás: a vezérlés feltétel nélkül adható át az adott helyre.</para>
+<para>Cimkézett utasitás: Azutasitások cimkével láthatók el, amely a goto célpontjaként szolgál.</para>
+<para>Nulla utasitás: hordozhat cimkét, vagy képezhet üres ciklustörzset.</para>

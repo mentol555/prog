@@ -66,7 +66,38 @@ A C egy alapvetően kifejezésorientált nyelv. A mutató tipussal összeadás �
 Példák C beli operátorokra: ()(függvényoperátor,precedencia felülirás), [](tömboperátor), . (minősitő operátor,struktúra és union esetén), ->(mutatóval történő minősités operátora), *(szorzás,tárterületen elhelyezett érték),&(operandus cime), ?:(háromoperandusú) stb.
 </para>
 
+<para>4. Utasitások</para>
+<para>
+Az utasitások az eljárásorientált nyelvek egyes lépéseit adják meg, és ezáltal generálja a forditóprogram a tárgyprogramot. 
+Két csoportba oszthatjuk őket: Deklarációs és Végrehajtható utasitások.
+A deklarációs utasitások mögött nem áll tárgykód, ezek a forditóprogramnak szólnak, tehát befolyásolják a tárgykódot, de ők nem kerülnek forditásra.
+A végrehajtható utasitásokból generálódik a tágykód a forditóprogram által. Besorolhatjuk őket több alosztályba:
+</para>
+<para>Értékadó utasitás: beállit/módosit egy változó értékkomponensét a program futásának bármely időpontjában.</para>
+<para>Üres utasitás: Korai nyelvekben elengedhetetlen a szintaktikában. Egyértelmű programszerkezet alakitható ki velük. </para>
+<para>Ugró utasitás: Korai nyelvekben ez is elengedhetetlen. A vezérlés egy bizonyos pontjára ugrik a programnak, és egy adott cimkével ellátott utasitást fog végrehajtani.</para>
+<para>Elágaztató utasitás: Két tevékenység közül lehet választani a program adott részén (if else), vagy több eset közül: (switch..case 1 case 2 ..)  </para>
+<para>Ciklusszervező utasitás: A program adott pontján egy tevékenységet akárhányszor elvégezhetünk. Ilyen a kezdőfeltételes, végfeltételes, előirt lépésszámú ciklus, felsorolásos, végtelen, összetett.</para>
+<para>Ciklusszervező utasitások egyes nyelvekben, példáúl a C ben: Kezdőfeltételes: While(feltétel), Végfeltételes: Do utasitás .. while(feltétel), For-cilkus: For(kif1;kif2;kif3) utasitás ..</para>
+<para>Vezérlő utasitások a C-ben: Coninue;(ami utána van nem hajtódik végre, hanem újrakezdi a feltételvizsgálatot), Break;(Szabályosan befejezteti a ciklust, és kilép az utasitásból), Return kifejezés; (Befejezteti a függvényt és visszaadja a vezérrlést a hivónak).</para>
 
-
-
+<para>5. A programok szerkezete</para>
+<para>Az eljárásorientált nyelvekben a program szövege szuverén programegységekre tagolható</para>
+<para>Az alábbi programegységek léteznek:</para>
+<para>Alprogramok: programozási eszköz, mely lehetővéteszi az újra felhasználást. Akkor használjuk, ha több helyen ismétlődik egy programrész, és külön egy helyre le szeretnénk irni. Négy komponensből áll: név, formális paraméter lista, törzs, környezet.
+A neve egy azonositó, formális paraméter listában azonositók szerepelnek, egy általános szerepkört irnak le az alprogramban. A formális paraméter lista lehet üres is. A törzsben deklarációs, végrehajtható utasitások vannak, itt van leirva h mit csináljon az alprogramunk.
+Az alprogram környezete alatt a globális változók együttesét értjük.</para>
+<para>Az alprogramok továbbá besorolhatók két fontos kategóriába: eljárás és függvény. Az eljárás egy olyan alprogram amely tevékenységet hajt végre, a hivás helyén ennek a tevékenységnek az eredményét használjuk fel. A függvény egy olyan alprogram, mely
+egyetlen értéket határoz meg, és ezzel tér vissza. A függvény visszatérési értékét a neve hordozza, azaz követi vissza a hivás helyére.</para>
+<para>A függvény hivási alakja: függvénynév (akt_param_lista), és az eljárás hivása: [alapszó] eljárásnév(akt_param_lista).</para>
+<para>A hivási lánc, vagy rekurzió az bizonyos programegységek egymásba ágyazott hivásán alapszik. Egy programegység bármikor meghivhat egy másik programegységet, és a vezérlés oda ugrik.</para>
+<para>Két féle rekurzió lehet: közvetlen: egy alprogram önmagát hivja, azaz magára hivatkozik. Közvetett: a hivási láncban korábban szereplő alprogramot hivunk meg. Amikor egy aktiv alprogramot hivunk meg, azt nevezzük rekurziónak.</para>
+<para>Másodlagos belépési pontok: Vannak nyelvek, melyek megengedik, hogy egy alprogramot ne csak fejen keresztül lehessen meghivni, hanem a törzsben ki lehessen alakitani ún. másodlagos belépési pontokat, tehát ezzel is lehet hivatkozni az alprogramra.</para>
+<para>A paraméterkiértékelés az a folyamat, amikor egymáshoz rendelődnek a formális és aktuális paraméterek egy alprogram hivásánál. Mindig a formális paraméter lista az elsődleges, az aktuális paraméterlistából akárhány lehet,
+attől függ hogy hányszor hivjuk az alprogramot. A paraméterszám lehet fix, de tetszőleges is.</para>
+<para>A paraméter átadás egy kommunikációs forma az alprogramok és más programegységek között. Mindig van egy hivó, és egy hivott.</para>
+<para>A nyelvek által ismert paraméterátadási módok: érték szerinti, cim szerinti, eredmény szerinti, érték-eredmény szerinti, név szerinti, szöveg szerinti.</para>
+<para>A blokk egy programegység. Más programegység belsejében helyezkedik el kizárólag. Van kezdete, törzse és vége.</para>
+<para>A hatáskör nevekhez kapcsolódik. Hatáskör alatt értjük a program szövegének egy olyan részét, ahol jelentése felhasználási módja és jellemzői azonosak. Szinonimája a scope. 
+A hatáskör lehet lokális, azaz egy programegységen belül van deklarálva, és lehet globális, amely mindenhol elérhető a program területén. A hatáskört lehet kezelni statikusan és dinamikusan is.</para>
 

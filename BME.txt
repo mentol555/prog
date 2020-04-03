@@ -12,8 +12,41 @@ Több bájtos stringek fogalma is ismertetésre kerül, és ezek használásáho
 A változó deklaráció mint utasitás is szóbajön, azaz minden olyan helyen állhat változódeklaráció, ahol utasitás is állhat.
 Megismerjük a függvények túlterheltségét is: C ben a függvény neve azonositja egyértelműen a függvényt, mig C++ ban a függvény neve és az argumentumlistájuk együttesen azonositja.
 Ezért történhet meg az, hogy C++ ban azonos néven létezhet két függvény ha az argumentumlistájuk különböző és egyedi.
-
 </para>
+<para>Lehetőségünk van arra is a C++ nyelvben, hogy a függvény argumentumainak alapértelmezett értéket adjunk meg.</para>
+<para>A C++ nyelven továbbá lehetőségünk van paraméterátadásra referencia tipussal. Ez azt jelenti, hogy a változó cimét adjuk át, nem pedig az értékét, és ez nagyon hatékony tud lenni egyes esetekben.</para>
+<para>A C++ a cim szerinti paraméter átadást referenciákkal valósitjuk meg, ezt a mechanizmust referencia szerinti paraméterátadásnak nevezzük.</para>
+<para>A függvénynek átadott argumentum könnyű megváltoztathatósága a referenciának csak az egyik alkalmazási területe.
+ezért példáúl nagy méretű argumentumok:pl struktúrák esetén teljesitménynövekedést érhetünk el.</para>
+
+<para>Harmadik fejezet: objektumok és osztályok</para>
+<para>Az objektum orientáltság bevezetése több alapelvet követett: legyen átláthatóbb a program, a program bonyolultsága ne növekedjen drasztikusan stb.</para>
+<para>Az osztályoknak lehetnek példányai, önálló egyedei melyeket objektumoknak nevezünk, és ezek az objektumok tudnak egymást közt kommunikálni. Egy adott témakörhöz, pl a Számlához létrehozhatunk
+egy osztályt, abban egyedeket, és műveleteket. Ezek egy egységbe záródnak, és értelem szerűen együtt működnek.</para>
+<para>Az objektum orientáltság egy szemléletmód/paradigma, ami a modern felfogást és gondolkodást szemlélteti, valamint az évek múlásával és a programozás fejlődésével alakult ki, annak érdekében, hogy könnyebb legyen az élete egy programozónak.</para>
+<para>Egységbe zárás a C++-ban: Egy c++ programban megvalósithatók olyan programok is, melyek tartalmaznak tagváltozókat(struktúra adattagjai), és tagfüggvényeket(osztály részeként, lehetséges osztályon belül vagy osztályon kivül). </para>
+<para>Adatrejtés: Az egységbe záráshoz kapcsolódik, mely átláthatóbbá tette a programunkat. Lehetőség van rejteni az adatainkat, private: részként megadni a sturktúrában, public: részben pedig amit nem védünk. Osztályon belül alapból elendő csak a public: kihangsúlyozása  </para>
+<para>Konstruktorok, destruktorok: Az osztályunkba a ha nem irunk konstruktort, akkor alapból létezik egy olyan konstruktor ami nem csinál semmit. Ha irunk paraméteres konstruktort, akkor példányositani tudjuk az osztályunkat mikor objektumot hozunk létre.
+Tehát a konstruktor szerepe az inicializálás, a destruktor pedig egy olyan tagfüggvény ami ~ jellel kezdődik és akkor hivódik, ha az objektum megszűnik: felszabadul.</para>
+<para>Dinamikus memóriakezelésnek nevezzük azt amikor new utasitással foglalunk helyet a free storeban, a delete szóval pedig töröljük azt.</para>
+<para>Dinamikus adattagokat a dinamikus memóriakezelés során hozzuk létre, szóval nem gyártjuk le előre az adattagokat mint a gyár, hanem csak mikor kell, akkor hozunk létre újakat, és foglalunk neki annyi memóriát amennyit kell.</para>
+<para>A másoló konstruktor is egy konstruktor, mellyel az a célunk, hogy már meglévő objektum alapján az újonnan létrehozott objektumot inicializáljuk, tehát egy másolatot szeretnénk létrehozni. A másolókonstruktornak átadott argumentumból kell egy másolatot létrehozni,
+a függvényparamétert inicializáljuk az átadott értékkel.</para>
+<para>A friend függvények és osztályok azzal a jellemzővel birnak, hogy feljogositanak bizonyos más osztálybeli tagfüggvényeket vagy globális függvényeket a saját védett tagváltozói és tagfüggvényei elérésére. Ezt a feljogositást a friend kulcsszóval tehetjük meg.
+Az osztály tervezője mondja meg, hogy milyen függvények és vagy osztályok férhetnek hozzá a saját osztályához.</para>
+<para>A tagváltozókat inicializálhatjuk konstruktorainkban, a : karakter után felsoroljuk az inicializálni kivánt tagváltozókat. Fontos, hogy az inicializálás kezdő értéket állit be,azaz konstruktorhivás, mig az értékadás egy meglévő objektumnak ad értéket.</para>
+<para>Az osztályon belül létrehozhatók statikus tagok is, melyek tulajdonsága, hogy az adott osztályhoz tartoznak, nem azok objektumaihoz. A statikus tagok lehetnek statikus tagváltozók és tagfüggvények. A statikus tagok objektum nélkül is használhatók. A memóriában egy helyen vannak.
+A statikus tagfüggvények statikus változókkal dolgoznak. Ezeket is a static kulcsszóval lehet jelezni. 
+Akkor kell statikus tagváltozókat használni, ha az osztály minden objektumára közös változóra van szükségünk. Ez a helyzet a statikus tagfüggvényekkel is.
+Fontos tudni, hogy a statikus tagváltozók az alkalmazás inditásakor inicializálódnak, a main függvénybe való lépés előtt, a globális változókkal egyidejüleg. </para>
+<para>Beágyazott definiciók létrehozására is van lehetőségünk, ilyen az enumeráció,osztály,struktúra,tipusdefinició(typedef) osztálydefinicón belüli megadása. Ezeket beágyazott(nested) definicióknak nevezzük. 
+</para>
+<para>Operátorok és túlterhelésük c. fejezetből sok hasznos információt ismerhetünk meg az operátorokról általában(visszatérési érték,kiértékelési sorrend stb.)
+valamint a függvényszintaxisról, és túlterhelésükről-mi mindent meg lehet valósitani függvényekkel. Irhatunk külön operator kulcsszóval leirt definiciókat is, mely egyedi
+operátor létrehozására ad jogot, és leirhatjuk, hogy hogy is viselkedjen az argumentumokban kapott értékekre.
+Egy nagyon jó illusztrációt láthatunk ezt követően, azaz egy komplex számokat megvalósitó osztályt, amiben nagyon sok új módszer kerül használatra, többek között az operátor túlterhelés is.
+</para>
+
 <para>
 A C++ nyelv kifejlesztése során át kellett térni C nyelvi szabályokból új szabályokra, igy születtek meg a C++ megoldások.
 Ilyen pl a C ben ismert struct mely C++ban class lett, a malloc/free ből new/delete (new[]/delete[]) lett, 
